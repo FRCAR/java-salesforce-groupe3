@@ -1,26 +1,22 @@
 package entrainement;
 public class Arene {
-    private String nom;
-    private int effetUnique;
-    private int effetPermanent;
-    
+    private final String nom;
+    private final int effetUnique;
+    private final int effetPermanent;
+
+    public Arene(String nom, int effetUnique, int effetPermanent){
+        this.nom = nom;
+        this.effetUnique = effetUnique;
+        this.effetPermanent = effetPermanent;
+    }
     public String getNom() {
         return nom;
     }
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public int getEffetUnique() {
         return effetUnique;
-    }
-    public void setEffetUnique(int effetUnique) {
-        this.effetUnique = effetUnique;
     }
     public int getEffetPermanent() {
         return effetPermanent;
     }
-    public void setEffetPermanent(int effetPermanent) {
-        this.effetPermanent = effetPermanent;
-    }
+
 }
