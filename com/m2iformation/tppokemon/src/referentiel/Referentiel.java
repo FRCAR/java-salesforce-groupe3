@@ -2,6 +2,7 @@ package referentiel;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,27 +11,39 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 public class Referentiel {
-    private static Random rand = new Random();
-    private static int max = 4;
-    private static int min = 1;
-    private static Roucoul roucoul1 = new Roucoul(rand.nextInt(max - min + 1)
-            + min, "Chouchou", "Roucoul",
+    // private static Random rand = new Random();
+    // private static int max = 4;
+    // private static int min = 1;
+    private static Roucoul roucoul1 = new Roucoul(1, "Chouchou", "Roucoul",
             EnumType.VOL, 90);
-    private static Carapuce carapuce1 = new Carapuce(rand.nextInt(max - min + 1)
-            + min, "Cara",
+    private static Carapuce carapuce1 = new Carapuce(2, "Cara",
             "Carapuce",
             EnumType.EAU, 100);
-    private static Salameche salameche1 = new Salameche(rand.nextInt(max - min + 1)
-            + min, "ToutFeuToutFlamme",
+    private static Salameche salameche1 = new Salameche(3, "ToutFeuToutFlamme",
             "Salameche",
             EnumType.FEU, 100);
-    private static Racaillou racaillou1 = new Racaillou(rand.nextInt(max - min + 1)
-            + min, "Pierre",
+    private static Racaillou racaillou1 = new Racaillou(4, "Pierre",
             "Racaillou",
             EnumType.SOL, 110);
+    public static Map<Integer, Espece> getPokeOrdonneInv() {
+        return pokeOrdonneInv;
+    }
+
+    public static void setPokeOrdonneInv(Map<Integer, Espece> pokeOrdonneInv) {
+        Referentiel.pokeOrdonneInv = pokeOrdonneInv;
+    }
+
     public static Map<Integer, Espece> map = new HashMap<>();
     public static Map<Integer, Espece> pokeOrdonne = new TreeMap<>();
+    public static Map<Integer, Espece> pokeOrdonneInv = new TreeMap<>(Collections.reverseOrder());
+
    
+
+    public static Map<Integer, Espece> getPokeOrdonne() {
+        return pokeOrdonne;
+    }
+
+
 
     public static Map<Integer, Espece> getMap() {
         return map;
@@ -41,7 +54,7 @@ public class Referentiel {
     public void RecupAllPoke(Map<Integer, Espece> map) {
         map.put((int) racaillou1.getPokeId(), carapuce1);
         map.put((int) salameche1.getPokeId(), salameche1);
-        map.put((int) carapuce1.getPokeId(), carapuce1);
+        map.put((int) carapuce1.getPokeId(), racaillou1);
         map.put((int) roucoul1.getPokeId(), roucoul1);
         for (Map.Entry<Integer, Espece> entrees : map.entrySet()) {
             System.out.println("Mon id est " + entrees.getKey() + " je suis " + entrees.getValue().getSurnom()+ ", un " + entrees.getValue().getEspece());
@@ -51,7 +64,10 @@ public class Referentiel {
     
    
     public void RecupAllPokeParOrdre(Map<Integer, Espece> pokeOrdonne) {
-   
+        salameche1.setPointsXp(20);
+        carapuce1.setPointsXp(15);
+        roucoul1.setPointsXp(17);
+        racaillou1.setPointsXp(10);
         pokeOrdonne.put(racaillou1.getPointsXp(), racaillou1);
         pokeOrdonne.put(salameche1.getPointsXp(), salameche1);
         pokeOrdonne.put(carapuce1.getPointsXp(), carapuce1);
@@ -82,10 +98,7 @@ public class Referentiel {
     }
 
     public static void main(String[] args) {
-        salameche1.setPointsXp(20);
-        carapuce1.setPointsXp(15);
-        roucoul1.setPointsXp(17);
-        racaillou1.setPointsXp(10);
+    
         Referentiel monref = new Referentiel();
         monref.RecupAllPoke(map);
         monref.RecupAllPokeParOrdre(pokeOrdonne);
