@@ -1,6 +1,15 @@
 package entrainement;
 
+import referentiel.Carapuce;
+import referentiel.Racaillou;
+import referentiel.Roucoul;
+import referentiel.Salameche; 
+
 public class SimulationEntrainement {
+    Salameche monSalameche;
+    Roucoul monRoucoul;
+    Carapuce monCarapuce;
+    Racaillou monRacaillou;
     public static void main(String[] args) {
 
     }

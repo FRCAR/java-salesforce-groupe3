@@ -27,11 +27,11 @@ public class Referentiel {
     }
 
     public static void main(String[]args){
-        Roucoul roucoul1 = new Roucoul(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
+        Roucoul roucoul1 = new Roucoul(Integer.valueOf((int) (Math.random() * 150)), "monRoucoul", "Salameche",
                 EnumType.VOL, 90);
-        Carapuce carapuce1 = new Carapuce(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
+        Carapuce carapuce1 = new Carapuce(Integer.valueOf((int) (Math.random() * 150)), "monCarapuce", "Salameche",
                 EnumType.EAU, 100);
-        Racaillou racaillou1 = new Racaillou(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
+        Racaillou racaillou1 = new Racaillou(Integer.valueOf((int) (Math.random() * 150)), "monRacaillou", "Salameche",
                 EnumType.SOL, 110);
         Salameche salameche1 = new Salameche(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
                 EnumType.FEU, 100);
