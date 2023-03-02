@@ -11,7 +11,10 @@ abstract public class Espece {
 
     abstract public double getPokeId();
 
-    abstract public String getSurnom();
+    public String getSurnom() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSurnom'");
+    }
 
     abstract public void setSurnom(String surnom);
 
