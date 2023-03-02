@@ -12,8 +12,10 @@ public class SimulationEntrainement {
     Racaillou monRacaillou;
     Arene monArene;
     Combat monCombat;
+   
     public static void main(String[] args) {
 
+        afficheAllArene();
     }
 
     public void afficheAllPokeParOdre() {
@@ -24,8 +26,12 @@ public class SimulationEntrainement {
 
     }
 
-    public void afficheAllArene() {
+    public static void afficheAllArene() {
 
+        System.out.println("Liste de toutes les arènes :");
+        for (EnumArene arena : EnumArene.values()) {
+            System.out.println(" - " + arena);
     }
 
+    }
 }
