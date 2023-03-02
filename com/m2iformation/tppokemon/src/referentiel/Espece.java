@@ -1,7 +1,7 @@
 package referentiel;
 
 abstract public class Espece {
-    protected double pokeId;
+    protected Integer pokeId;
     protected String surnom;
     protected String espece;
     protected EnumType type;
@@ -9,7 +9,7 @@ abstract public class Espece {
     protected int pointsDeVieMax;
     protected int pointsXp;
 
-    abstract public double getPokeId();
+    abstract public Integer getPokeId();
 
     public String getSurnom() {
         // TODO Auto-generated method stub

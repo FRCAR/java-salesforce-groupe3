@@ -1,7 +1,14 @@
 package entrainement;
 
-public class Combat {
+import java.util.HashMap;
+import java.util.Map;
 
+import referentiel.Espece;
+
+public class Combat {
+    public static Map<Integer, Espece> map = new HashMap<>();
+    
+    
     public void shufflePoke() {
 
     }

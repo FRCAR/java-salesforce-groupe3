@@ -1,16 +1,17 @@
 package referentiel;
 
 public class Racaillou extends Espece {
-    public Racaillou(double pokeId, String surnom, String espece, EnumType type, int pointsDeVieMax){
+    public Racaillou(Integer pokeId, String surnom, String espece, EnumType type, int pointsXp, int pointsDeVieMax){
         this.pokeId = pokeId;
         this.surnom =  surnom;
         this.espece = espece;
         this.type = type;
+        this.pointsXp = pointsXp;
         this.pointsDeVieMax = pointsDeVieMax;
     }
 
     @Override
-    public double getPokeId() {
+    public Integer getPokeId() {
         return pokeId;
     }
 

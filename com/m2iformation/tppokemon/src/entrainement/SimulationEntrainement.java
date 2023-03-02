@@ -1,6 +1,7 @@
 package entrainement;
 
 import java.security.KeyStore.Entry;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -18,10 +19,8 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
-    private static Referentiel monPokedex;
-    private static Map<Integer, Espece> poke = Referentiel.getMap();
-    private static Map<Integer, Espece> mesPokes = Referentiel.getPokeOrdonne();
-    private static Map<Integer, Espece> mesPokesInv = Referentiel.getPokeOrdonneInv();
+    private  Referentiel monPokedex;
+
 
     public static void afficheAllArene() {
         System.out.println("");
@@ -30,12 +29,49 @@ public class SimulationEntrainement {
         }
     }
 
-    public void afficheAllPokeParOdre() {
+    public void afficheAllPoke() {
 
+        for (Espece entrees : this.monPokedex.recupAllPoke()) {
+            System.out.println("Mon id est " + entrees.getPokeId() + " je suis"
+                    + entrees.getSurnom() + ", un "
+                    + entrees.getEspece() + "\n");
+        }
+    }
+
+    public void afficheAllPokeParOrdre() {
+        for (Espece entrees : this.monPokedex.recupAllPokeParOrdre()) {
+            System.out.println("Mon XP est " + entrees.getPointsXp() + " je suis"
+                    + entrees.getSurnom() + ", un "
+                    + entrees.getEspece() + "\n");
+        }
+    }
+
+
+    public void recupPokeParId(Integer id) {
+        for (Espece entrees : this.monPokedex.recupAllPoke()) {
+            if (id == entrees.getPokeId()) {
+                // return this.map.get(id);
+                System.out.println("Mon index est " + entrees.getPokeId() + " je suis " + entrees.getSurnom());
+            }
+        }
+    }
+
+    public void afficheDetailPoke(Integer id) {
+        for (Espece entrees : this.monPokedex.recupAllPoke()) {
+            if (id == entrees.getPokeId()) {
+                // return this.map.get(id);
+                System.out.println("Mon id est " + entrees.getPokeId() + " je suis " + entrees.getSurnom()
+                        + ", mon espece est " + entrees.getEspece()
+                        + " mon Type est : " + entrees.getType() + " , mes points de vie max sont de : "
+                        + entrees.getPointsDeVieMax() + " et mon XP est de : "
+                        + entrees.getPointsXp());
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
-        Referentiel monPokedex = new Referentiel();
+        SimulationEntrainement monEntrainement = new SimulationEntrainement();
+        monEntrainement.monPokedex = new Referentiel();
 
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
@@ -63,27 +99,27 @@ public class SimulationEntrainement {
             } catch (Exception e) {
                 scannerClavier1.next();
                 System.out.println("je t'ai catché ! incorrect");
-                // continue; // no need here
+                // continue; // no need here1
             }
 
             switch (premiereSaisieUser) {
                 case 1 -> {
                     System.out.println("Voila tous les identifiants et noms d'un pokémon : \n");
                     // Ici j'affiche les Id et les noms des pokémons
-                    monPokedex.RecupAllPoke(poke);
-
+                    // monPokedex.RecupAllPoke(poke);
+                    monEntrainement.afficheAllPoke();
                 }
                 case 2 -> {
                     System.out.println("Voila la liste d'un pokémon, trié par expérience par odre décroissante : \n");
                     // ici j'affiche la liste d'un pokémon, trié par expérience (ordre décroissante)
                     // du plus fort au moins fort)
-                    monPokedex.RecupAllPokeParOrdre(mesPokesInv);
+                    monEntrainement.afficheAllPokeParOrdre();
                 }
                 case 3 -> {
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
                     saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
-                    monPokedex.afficheDetailPoke(saisieNext);
+                   monEntrainement.afficheDetailPoke(saisieNext);
                 }
                 case 4 -> {
                     System.out.println("Voila la liste de toutes les arènes : ");
@@ -125,6 +161,7 @@ public class SimulationEntrainement {
 
         scannerClavier1.close();
         // *************************** FIN SCANNER *******************************
+
     }
 
 }
