@@ -10,6 +10,8 @@ public class SimulationEntrainement {
     Roucoul monRoucoul;
     Carapuce monCarapuce;
     Racaillou monRacaillou;
+    Arene monArene;
+    Combat monCombat;
     public static void main(String[] args) {
 
     }
