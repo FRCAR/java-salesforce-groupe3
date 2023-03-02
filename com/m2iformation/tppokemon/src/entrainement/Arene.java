@@ -3,6 +3,7 @@ public class Arene {
     private final EnumArene nom;
     private final int effetUnique;
     private final int effetPermanent;
+    public Object enumArene;
 
     public Arene(EnumArene nom, int effetUnique, int effetPermanent){
         this.nom = nom;
@@ -15,6 +16,12 @@ public class Arene {
     }
     public int getEffetPermanent() {
         return effetPermanent;
+    }
+
+    public EnumArene getNom() {
+        return nom;
+       
+
     }
 
 }

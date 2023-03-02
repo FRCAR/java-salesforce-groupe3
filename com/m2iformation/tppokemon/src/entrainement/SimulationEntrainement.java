@@ -16,12 +16,14 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
+   
     private static Referentiel monPokedex;
     private static Map<Double, String> map2 = monPokedex.getMap();
 
     public static void main(String[] args) {
        Referentiel monPokedex = new Referentiel();
         monPokedex.RecupAllPoke(map2);
+        afficheAllArene();
     }
 
     public void afficheAllPokeParOdre() {
@@ -33,8 +35,12 @@ public class SimulationEntrainement {
 
     }
 
-    public void afficheAllArene() {
+    public static void afficheAllArene() {
 
+        System.out.println("Liste de toutes les arènes :");
+        for (EnumArene arena : EnumArene.values()) {
+            System.out.println(" - " + arena);
     }
 
+    }
 }
