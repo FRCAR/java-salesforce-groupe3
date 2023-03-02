@@ -1,58 +1,32 @@
 package referentiel;
 
-public class Espece {
-    private int id;
-    private String nom;
-    private String type;
-    private int pointsDeVieMax;
-    private String attaque;
+abstract public class Espece {
+    protected double pokeId;
+    protected String surnom;
+    protected String espece;
+    protected EnumType type;
+    protected int pointsDeVie;
+    protected int pointsDeVieMax;
+    protected int pointsXp;
 
-    public Espece(int id, String nom, String type, int pointsDeVieMax, String attaque) {
-        this.id = id;
-        this.nom = nom;
-        this.type = type;
-        this.pointsDeVieMax = pointsDeVieMax;
-        this.attaque = attaque;
-    }
+    abstract public double getPokeId();
 
-    // Getters et setters
-    public int getId() {
-        return id;
-    }
+    abstract public String getSurnom();
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    abstract public void setSurnom(String surnom);
 
-    public String getNom() {
-        return nom;
-    }
+    abstract public String getEspece();
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    abstract public EnumType getType();
 
-    public String getType() {
-        return type;
-    }
+    abstract public int getPointsDeVie();
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    abstract public void setPointsDeVie(int pointsDeVie);
 
-    public int getPointsDeVieMax() {
-        return pointsDeVieMax;
-    }
+    abstract public int getPointsDeVieMax();
 
-    public void setPointsDeVieMax(int pointsDeVieMax) {
-        this.pointsDeVieMax = pointsDeVieMax;
-    }
+    abstract public int getPointsXp();
 
-    public String getAttaque() {
-        return attaque;
-    }
+    abstract public void setPointsXp(int pointsXp);
 
-    public void setAttaque(String attaque) {
-        this.attaque = attaque;
-    }
 }

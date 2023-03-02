@@ -18,7 +18,6 @@ public class Attaque {
     }
 
     public int calculDegats() {
-
     }
 
 }
