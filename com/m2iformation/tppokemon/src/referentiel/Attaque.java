@@ -5,6 +5,12 @@ public class Attaque {
     private final String nom;
     private int degats;
 
+    // CONSTRUCTEUR
+    public Attaque(String nom) {
+        this.nom = nom;
+    }
+
+    // GETTERS SETTERS
     public String getNom() {
         return nom;
     }
@@ -17,7 +23,7 @@ public class Attaque {
         this.degats = degats;
     }
 
-    public int calculDegats() {
-    }
+    // public int calculDegats() {
+    // }
 
 }

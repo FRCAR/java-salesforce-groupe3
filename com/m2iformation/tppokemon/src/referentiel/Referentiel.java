@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class Referentiel {
 
-
     Map<Integer, Espece> map = new HashMap<>();
 
     public void RecupAllPoke() {
@@ -26,7 +25,7 @@ public class Referentiel {
 
     }
 
-    public static void main(String[]args){
+    public static void main(String[] args) {
         Roucoul roucoul1 = new Roucoul(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
                 EnumType.VOL, 90);
         Carapuce carapuce1 = new Carapuce(Integer.valueOf((int) (Math.random() * 150)), "monSalameche", "Salameche",
@@ -38,6 +37,6 @@ public class Referentiel {
         System.out.println("Mon id est " + salameche1.getPokeId() + " je m'apelle " + salameche1.getSurnom()
                 + ", mon espece est " + salameche1.getEspece() +
                 " je suis de type " + salameche1.getType() + " mes points de vie max sont de : "
-                + salameche1.getPointsDeVieMax());  
+                + salameche1.getPointsDeVieMax());
     }
 }
