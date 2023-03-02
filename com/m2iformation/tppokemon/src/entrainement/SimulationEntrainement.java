@@ -24,6 +24,7 @@ public class SimulationEntrainement {
     private static Map<Integer, Espece> mesPokesInv = Referentiel.getPokeOrdonneInv();
 
     public static void afficheAllArene() {
+        System.out.println("");
         for (EnumArene arena : EnumArene.values()) {
             System.out.println(" - " + arena);
         }
@@ -39,7 +40,7 @@ public class SimulationEntrainement {
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
 
-        // ********** DEBUT SCANNER **********
+        // *************************** DEBUT SCANNER *******************************
         // Je mets ici un boolean a true pour qu'il puisse changer d'état lorsqu'on
         // clique sur "6 - fermer le terminal"
         boolean bool = true;
@@ -123,7 +124,7 @@ public class SimulationEntrainement {
         } // fin du While()
 
         scannerClavier1.close();
-        // ********** FIN SCANNER **********
+        // *************************** FIN SCANNER *******************************
     }
 
 }
