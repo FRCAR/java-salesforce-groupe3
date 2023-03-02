@@ -29,4 +29,11 @@ abstract public class Espece {
 
     abstract public void setPointsXp(int pointsXp);
 
+    @Override
+    public String toString() {
+        return "Espece [pokeId=" + pokeId + ", surnom=" + surnom + ", espece=" + espece + ", type=" + type
+                + ", pointsDeVie=" + pointsDeVie + ", pointsDeVieMax=" + pointsDeVieMax + ", pointsXp=" + pointsXp
+                + "]";
+    }
+
 }
