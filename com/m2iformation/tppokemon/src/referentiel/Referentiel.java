@@ -86,6 +86,18 @@ public class Referentiel {
         }
     }
 
+    public void afficheDetailPoke(Integer id) {
+        for (java.util.Map.Entry<Integer, Espece> entrees : map.entrySet()) {
+            if (id == entrees.getKey()) {
+                // return this.map.get(id);
+                System.out.println("Mon id est " + entrees.getKey() + " je suis " + entrees.getValue().getSurnom()
+                        + ", mon espece est " + entrees.getValue().getEspece()
+                        + " mon Type est : " + entrees.getValue().getType() + " , mes points de vie max sont de : "
+                        + entrees.getValue().getPointsDeVieMax() + " et mon XP est de : "
+                        + entrees.getValue().getPointsXp());
+            }
+        }
+    }
     // public void updatePoke(Espece espece) {
     // if(this.map.containsKey(espece.getId())){
     // this.map.put(espece.getPokeId(),espece);
@@ -103,6 +115,7 @@ public class Referentiel {
         monref.RecupAllPoke(map);
         monref.RecupAllPokeParOrdre(pokeOrdonne);
         monref.RecupPokeParId(3);
+        monref.afficheDetailPoke(3);
  
    
     }

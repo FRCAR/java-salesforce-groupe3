@@ -1,5 +1,6 @@
 package entrainement;
 
+import java.security.KeyStore.Entry;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -34,15 +35,14 @@ public class SimulationEntrainement {
 
     }
 
-    public void afficheDetailPoke() {
-
-    }
+    
 
     public static void main(String[] args) {
         Referentiel monPokedex = new Referentiel();
         monPokedex.RecupAllPoke(poke);
         monPokedex.RecupAllPokeParOrdre(mesPokes);
         monPokedex.RecupAllPokeParOrdre(mesPokesInv);
+        monPokedex.afficheDetailPoke(3);
         afficheAllArene();
         
     }
