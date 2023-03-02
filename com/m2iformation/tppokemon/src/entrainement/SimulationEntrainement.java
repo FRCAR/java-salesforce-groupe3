@@ -55,6 +55,7 @@ public class SimulationEntrainement {
 
             // variable initialisé pour qu'il puisse être utilisé dans le switch
             int premiereSaisieUser = 0;
+            int saisieNext = 0;
             // soulever l'exception si on tape autre chose que des chiffres
             try {
                 premiereSaisieUser = scannerClavier1.nextInt();
@@ -79,9 +80,9 @@ public class SimulationEntrainement {
                 }
                 case 3 -> {
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
-                    int saisieNext = scannerClavier1.nextInt();
+                    saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
-                    monPokedex.afficheDetailPoke(3);
+                    monPokedex.afficheDetailPoke(saisieNext);
                 }
                 case 4 -> {
                     System.out.println("Voila la liste de toutes les arènes : ");

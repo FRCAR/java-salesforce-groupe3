@@ -10,6 +10,7 @@ public class Referentiel {
     // private static Random rand = new Random();
     // private static int max = 4;
     // private static int min = 1;
+  
     private static Roucoul roucoul1 = new Roucoul(1, "Chouchou", "Roucoul",
             EnumType.VOL, 90);
     private static Carapuce carapuce1 = new Carapuce(2, "Cara",
@@ -78,7 +79,7 @@ public class Referentiel {
     }
 
     public void afficheDetailPoke(Integer id) {
-        for (java.util.Map.Entry<Integer, Espece> entrees : map.entrySet()) {
+        for (Entry<Integer, Espece> entrees : map.entrySet()) {
             if (id == entrees.getKey()) {
                 // return this.map.get(id);
                 System.out.println("Mon id est " + entrees.getKey() + " je suis " + entrees.getValue().getSurnom()
