@@ -1,5 +1,6 @@
 package entrainement;
 
+import java.security.KeyStore.Entry;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -29,10 +30,6 @@ public class SimulationEntrainement {
     }
 
     public void afficheAllPokeParOdre() {
-
-    }
-
-    public void afficheDetailPoke() {
 
     }
 
@@ -84,6 +81,7 @@ public class SimulationEntrainement {
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
                     int saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
+                    monPokedex.afficheDetailPoke(3);
                 }
                 case 4 -> {
                     System.out.println("Voila la liste de toutes les arènes : ");
