@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import referentiel.Carapuce;
+import referentiel.Espece;
 import referentiel.Racaillou;
 import referentiel.Referentiel;
 import referentiel.Roucoul;
@@ -16,19 +17,19 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
-   
     private static Referentiel monPokedex;
-    private static Map<Double, String> map2 = monPokedex.getMap();
+    private static Map<Double, Espece> poke =  monPokedex.getMap();
+    
+
 
     public static void main(String[] args) {
        Referentiel monPokedex = new Referentiel();
-        monPokedex.RecupAllPoke(map2);
+        monPokedex.RecupAllPoke(poke);
         afficheAllArene();
     }
 
     public void afficheAllPokeParOdre() {
-        // Map<Integer, Object> mapTri = new TreeMap<Integer, Object>();
-        // mapTri.put(map2., mapTri)
+       
     }
 
     public void afficheDetailPoke() {
