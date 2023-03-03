@@ -163,7 +163,7 @@ public class SimulationEntrainement {
                         combat.startCombat(volcan);
                     } else if (saisieArene == 3) {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
-                        //combat.startCombat(mareAcide);
+                        combat.startCombat(mareAcide);
                         combat.attaque();
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
