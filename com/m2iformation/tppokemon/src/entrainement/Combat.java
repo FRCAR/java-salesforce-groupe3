@@ -44,7 +44,6 @@ public class Combat {
         pokemon1.setPointsDeVie(pokemon1.getPointsDeVieMax());
         pokemon2.setPointsDeVie(pokemon2.getPointsDeVieMax());
         System.out.println("Les points de vie de " + pokemon1.toString() + "sont de " + pokemon1.getPointsDeVie()
-                + ". git"
                 + "Les points de vie de " + pokemon2.toString() + " sont de " + pokemon2.getPointsDeVie() + ".");
 
     }
