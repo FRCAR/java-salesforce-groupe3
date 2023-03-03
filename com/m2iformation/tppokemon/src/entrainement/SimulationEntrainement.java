@@ -79,10 +79,9 @@ public class SimulationEntrainement {
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
         // commencement du combat
-        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
-        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
-        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
-        combat.startCombat(mareAcide);
+    
+        
+        
         
 
         // Pour récup les pokémons par ordre exp et en ordre croissant
@@ -141,33 +140,33 @@ public class SimulationEntrainement {
                     System.out.println("\n");
                 }
                 case 5 -> {
-                    System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre \n");
-                    System.out.println("le premier id du pokémon : ");
-                    int saisieIdPokemon1 = scannerClavier1.nextInt();
-                    System.out.println("le deuxième id du pokémon : ");
-                    int saisieIdPokemon2 = scannerClavier1.nextInt();
-                    List<Object> combattants;
-
-                    // System.out
-                    // .println(
-                    // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n
-                    // Taper
-                    // 3 - MARE ACIDE : ");
-                    // Integer saisieArene = scannerClavier1.nextInt();
-
+                    // System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre \n");
+                    // System.out.println("le premier id du pokémon : ");
+                    // int saisieIdPokemon1 = scannerClavier1.nextInt();
+                    // System.out.println("le deuxième id du pokémon : ");
+                    // int saisieIdPokemon2 = scannerClavier1.nextInt();
+                    // List<Object> combattants;
+                    combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
+                    // initialisation des points de vie
+                    combat.initialisationPointsDeVie();
                     System.out
-                            .println(
-                                    "Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
-                    String saisieArene = scannerClavier1.nextLine();
-                    if (saisieArene == "PRAIRIE") {
-                     
-                       
-                    } else if (saisieArene == "VOLCAN") {
-                        
-                        
-                        
-                    } else if (saisieArene == "MARE ACIDE") {
-                        
+                    .println(
+                    "Combat sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \nTaper3 - MARE ACIDE : ");
+                    Integer saisieArene = scannerClavier1.nextInt();
+                    // System.out
+                    //         .println(
+                    //                 "Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
+                    // String saisieArene = scannerClavier1.nextLine();
+                    if (saisieArene == 1) {
+                        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                        combat.startCombat(prairie);
+                    } else if (saisieArene == 2) {
+                        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);    
+                        combat.startCombat(volcan);
+                    } else if (saisieArene == 3
+                    ) {
+                        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                        combat.startCombat(mareAcide);
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
