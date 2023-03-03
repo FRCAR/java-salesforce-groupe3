@@ -1,5 +1,5 @@
 package referentiel;
 
 public enum EnumType {
-    FEU, EAU, AIR, SOL;
+    FEU, EAU, VOL, SOL;
 }

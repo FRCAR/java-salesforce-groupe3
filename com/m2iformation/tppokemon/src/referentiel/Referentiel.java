@@ -43,7 +43,6 @@ public class Referentiel {
     private Map<Integer, Espece> map = new HashMap<>();
 
     public Collection<Espece> recupAllPoke() {
-
         return this.map.values();
     }
 

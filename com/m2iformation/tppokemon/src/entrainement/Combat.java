@@ -51,8 +51,45 @@ public class Combat {
 
     }
 
-    public void startCombat(Enum nomArene) {
-        System.out.println("Le combat dans " + nomArene + " entre " + pokemon1 + " et " + pokemon2 + " commence !");
+    public void startCombat(Arene arene) {
+        System.out
+                .println("Le combat dans " + arene.getNom() + " entre " + pokemon1 + " et " + pokemon2
+                        + " commence !");
+
+        int compteur = 0;
+
+        while (pokemon1.getPointsDeVie() >= 0 && pokemon2.getPointsDeVie() >= 0) {
+            if (pokemon1.getPointsDeVie() == 0 || pokemon2.getPointsDeVie() == 0) {
+                if (pokemon1.getPointsDeVie() == 0) {
+                    System.out.println(pokemon1.toString() + " est ko ! " + pokemon2.toString() + " l'importe ! ");
+                    break;
+                } else {
+                    System.out.println(pokemon2.toString() + " est ko ! " + pokemon1.toString() + " l'importe ! ");
+                    break;
+                }
+            } else if (compteur == 0 && EnumArene.VOLCAN == arene.getNom()) {
+                pokemon1.setPointsDeVie(pokemon1.getPointsDeVie() - arene.getEffetUnique());
+                pokemon2.setPointsDeVie(pokemon2.getPointsDeVie() - arene.getEffetUnique());
+                System.out.println("L'effet unique de l'arene " + arene.getNom() + " s'applique ! ");
+                System.out.println("Les points de vie de " + pokemon1.getSurnom()
+                        + " sont de " + pokemon1.getPointsDeVie());
+                System.out.println("Les points de vie de " + pokemon2.getSurnom()
+                        + " sont de " + pokemon2.getPointsDeVie());
+            } else if (compteur >= 0 && EnumArene.PRAIRIE == arene.getNom()) {
+                System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet");
+            } else if (compteur > 0 && arene.getNom() == EnumArene.VOLCAN) {
+                System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet permanent");
+            } else if (compteur >= 0 && EnumArene.MARE_ACIDE == arene.getNom()) {
+                pokemon1.setPointsDeVie(pokemon1.getPointsDeVie() - arene.getEffetPermanent());
+                pokemon2.setPointsDeVie(pokemon2.getPointsDeVie() - arene.getEffetPermanent());
+                System.out.println("L'effet permanent de l'arene " + arene.getNom() + " s'applique ! ");
+                System.out.println("Les points de vie de " + pokemon1.getSurnom()
+                        + " sont de " + pokemon1.getPointsDeVie());
+                System.out.println("Les points de vie de " + pokemon2.getSurnom()
+                        + " sont de " + pokemon2.getPointsDeVie());
+            }
+            compteur++;
+        }
     }
 
     public void attaque(Espece pokemon1, Espece pokemon2) {
