@@ -63,17 +63,19 @@ public class Combat {
 
         int compteur = 0;
         Object[] mesCombattants = this.recupCombattants();
-        while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece) mesCombattants[1]).getPointsDeVie() >= 0) {
-            if (((Espece) mesCombattants[0]).getPointsDeVie() == 0|| ((Espece) mesCombattants[1]).getPointsDeVie() == 0) {
+        while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0
+                && ((Espece) mesCombattants[1]).getPointsDeVie() >= 0) {
+            if (((Espece) mesCombattants[0]).getPointsDeVie() == 0
+                    || ((Espece) mesCombattants[1]).getPointsDeVie() == 0) {
                 if (((Espece) mesCombattants[0]).getPointsDeVie() == 0) {
                     System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! "
                             + ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
-                            System.out.println();
+                    System.out.println();
                     break;
                 } else {
                     System.out.println(((Espece) mesCombattants[1]).toString() + " est ko ! "
                             + ((Espece) mesCombattants[0]).toString() + " l'importe ! ");
-                            System.out.println();
+                    System.out.println();
                     break;
                 }
             } else if (compteur == 0 && EnumArene.VOLCAN == arene.getNom()) {
@@ -86,15 +88,15 @@ public class Combat {
                         + " sont de " + ((Espece) mesCombattants[0]).getPointsDeVie());
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[1]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[1]).getPointsDeVie());
-              
+
                 this.attaque();
             } else if (compteur >= 0 && EnumArene.PRAIRIE == arene.getNom()) {
                 System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet");
-               
+
                 this.attaque();
             } else if (compteur > 0 && arene.getNom() == EnumArene.VOLCAN) {
                 System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet permanent");
-              
+
                 this.attaque();
             } else if (compteur >= 0 && EnumArene.MARE_ACIDE == arene.getNom()) {
 
@@ -107,13 +109,14 @@ public class Combat {
                         + " sont de " + ((Espece) mesCombattants[0]).getPointsDeVie());
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[1]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[1]).getPointsDeVie());
-   
+
                 this.attaque();
                 System.out.println("");
 
             }
             compteur++;
         }
+        update();
     }
 
     public void attaque() {
@@ -152,26 +155,24 @@ public class Combat {
                 || ((Espece) mesCombattants[1]).getType() == EnumType.FEU) {
             attaque = attaque_feu;
         }
-      
+
         int calculDegats = (int) (attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2));
         ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - calculDegats);
         if (((Espece) mesCombattants[1]).getPointsDeVie() < 0) {
             ((Espece) mesCombattants[1]).setPointsDeVie(0);
-        System.out
-                .println(((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats
-                        + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie());
-    
+            System.out
+                    .println(((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats
+                            + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie());
+
         }
 
-
-       
-    // }
+        // }
         // // }
-        // ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
+        // ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece)
+        // mesCombattants[1]).getPointsXp());
         // System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
-        //         + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
+        // + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
     }
-
 
     // }
 

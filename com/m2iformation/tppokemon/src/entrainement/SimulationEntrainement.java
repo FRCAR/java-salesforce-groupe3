@@ -157,15 +157,18 @@ public class SimulationEntrainement {
                     if (saisieArene == 1) {
                         Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
                         combat.startCombat(prairie);
-                        
+
+                        System.out.println();
                     } else if (saisieArene == 2) {
                         Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
                         combat.startCombat(volcan);
-                        
+
+                        System.out.println();
                     } else if (saisieArene == 3) {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
                         combat.startCombat(mareAcide);
-                        
+
+                        System.out.println();
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
