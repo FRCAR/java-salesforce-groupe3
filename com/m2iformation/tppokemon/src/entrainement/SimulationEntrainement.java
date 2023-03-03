@@ -1,13 +1,5 @@
 package entrainement;
 
-import java.security.KeyStore.Entry;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 
 import referentiel.Carapuce;
@@ -23,8 +15,10 @@ public class SimulationEntrainement {
     private Carapuce monCarapuce;
     private Racaillou monRacaillou;
     private Arene monArene;
-    private static Combat monCombat;
+    private Combat monCombat;
+    private static Espece monPoke;
     private Referentiel monPokedex;
+    static Referentiel newPokedex = new Referentiel();
 
     public static void afficheAllArene() {
         System.out.println("");
@@ -40,6 +34,7 @@ public class SimulationEntrainement {
                     + entrees.getSurnom() + ", un "
                     + entrees.getEspece() + "\n");
         }
+        System.out.println("************************");
     }
 
     public void afficheAllPokeParOrdre() {
@@ -48,15 +43,18 @@ public class SimulationEntrainement {
                     + entrees.getSurnom() + ", un "
                     + entrees.getEspece() + "\n");
         }
+        System.out.println("************************");
     }
 
-    public void recupPokeParId(Integer id) {
-        for (Espece entrees : this.monPokedex.recupAllPoke()) {
+    public static Espece recupPokeParId(Integer id) {
+        for (Espece entrees : newPokedex.recupAllPoke()) {
             if (id == entrees.getPokeId()) {
                 // return this.map.get(id);
                 System.out.println("Mon index est " + entrees.getPokeId() + " je suis " + entrees.getSurnom());
+                Espece monPoke = entrees;
             }
         }
+        return monPoke;
     }
 
     public void afficheDetailPoke(Integer id) {
@@ -70,6 +68,7 @@ public class SimulationEntrainement {
                         + entrees.getPointsXp());
             }
         }
+        System.out.println("\n ************************");
     }
 
     public static void main(String[] args) throws Exception {
@@ -77,12 +76,12 @@ public class SimulationEntrainement {
         monEntrainement.monPokedex = new Referentiel();
         Combat combat = new Combat();
         // Fonction pour choix aléatoire des combattants
-        combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(),
-                4);
+        combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
+        // commencement du combat
+        // combat.startCombat(EnumArene.VOLCAN);
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
         // commencement du combat
-        combat.startCombat(EnumArene.VOLCAN);
 
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
@@ -93,7 +92,6 @@ public class SimulationEntrainement {
         boolean bool = true;
         Scanner scannerClavier1 = new Scanner(System.in);
         while (bool) {
-
             System.out.println("Taper 1 - afficher tous les identifiants et noms d'un pokémon");
             System.out.println("Taper 2 - afficher la liste d'un pokémon, trié par expérience par odre décroissante");
             System.out.println("Taper 3 - afficher le détail d'un pokémon");
@@ -115,6 +113,7 @@ public class SimulationEntrainement {
 
             switch (premiereSaisieUser) {
                 case 1 -> {
+                    System.out.println("\n ************************");
                     System.out.println("Voila tous les identifiants et noms d'un pokémon : \n");
                     // Ici j'affiche les Id et les noms des pokémons
                     // monPokedex.RecupAllPoke(poke);
@@ -122,73 +121,53 @@ public class SimulationEntrainement {
 
                 }
                 case 2 -> {
+                    System.out.println("\n ************************\n");
                     System.out.println("Voila la liste d'un pokémon, trié par expérience par odre décroissante : \n");
                     // ici j'affiche la liste d'un pokémon, trié par expérience (ordre décroissante)
                     // du plus fort au moins fort)
                     monEntrainement.afficheAllPokeParOrdre();
                 }
                 case 3 -> {
+                    System.out.println("\n ************************");
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
                     saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
                     monEntrainement.afficheDetailPoke(saisieNext);
                 }
                 case 4 -> {
+                    System.out.println("\n ************************");
                     System.out.println("Voila la liste de toutes les arènes : ");
                     // ici j'affiche la liste de toutes les arènes
                     afficheAllArene();
-                    System.out.println("\n");
+                    System.out.println("\n ************************");
                 }
                 case 5 -> {
-                    System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre ");
-                    System.out.println("le premier id du pokémon : ");
-                    int saisieIdPokemon1 = scannerClavier1.nextInt();
-                    System.out.println("le deuxième id du pokémon : ");
-                    int saisieIdPokemon2 = scannerClavier1.nextInt();
-
-                    // ici je récupère le nom du pokemon1 et son surnom
-                    Espece pokemon1 = monEntrainement.monPokedex.map.get(saisieIdPokemon1);
-                    // ici je récupère le nom du pokemon2 et son surnom
-                    Espece pokemon2 = monEntrainement.monPokedex.map.get(saisieIdPokemon2);
-
-                    // Ici je fait une création d'instance de la classe Random
-                    Random random = new Random();
-                    int randomPoke = random.nextInt(2);
-                    // stockage du résultat du random
-                    int pokeAttacker;
-                    int pokeDefender;
-
-                    if (randomPoke == 0) {
-                        pokeAttacker = saisieIdPokemon1;
-                        pokeDefender = saisieIdPokemon2;
-                    } else {
-                        pokeAttacker = saisieIdPokemon2;
-                        pokeDefender = saisieIdPokemon1;
-                    }
-
-                    List<Object> combattants;
-
+                    combat.initialisationPointsDeVie();
                     // System.out
                     // .println(
-                    // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n
-                    // Taper
+                    // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n Taper
                     // 3 - MARE ACIDE : ");
                     // Integer saisieArene = scannerClavier1.nextInt();
+                    // if (saisieArene == 1) {
+                    // Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                    // combat.startCombat(prairie);
 
-                    // String saisieArene = "";
-                    // do {
-                    // System.out.println("Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE)
-                    // :");
-                    // saisieArene = scannerClavier1.nextLine().toUpperCase().trim();
-                    // if (saisieArene.equals("")) {
-                    // System.out.println("Vous devez saisir une arène.");
-                    // } else if (!saisieArene.matches("(?i)(prairie|volcan|\\bmare acide\\b)")) {
-                    // System.out.println("L'arène saisie n'est pas valide");
+                    // System.out.println();
+                    // } else if (saisieArene == 2) {
+                    // Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+                    // combat.startCombat(volcan);
+
+                    // System.out.println();
+                    // } else if (saisieArene == 3) {
+                    // Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                    // combat.startCombat(mareAcide);
+
+                    // System.out.println();
+                    // } else {
+                    // System.out.println("L'arene saisie n'est pas valide");
                     // }
-                    // } while (!saisieArene.matches("(?i)(prairie|volcan|\\bmare acide\\b)"));
 
                     String saisieArene;
-
                     do {
                         System.out.println("Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                         saisieArene = scannerClavier1.nextLine().toUpperCase().trim();
@@ -196,12 +175,18 @@ public class SimulationEntrainement {
                         if (saisieArene.equals("PRAIRIE") || saisieArene.equals("prairie")
                                 || saisieArene.equals("Prairie")) {
                             Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                            System.out.println("\n ************************");
+                            combat.startCombat(prairie);
                         } else if (saisieArene.equals("VOLCAN") || saisieArene.equals("volcan")
                                 || saisieArene.equals("Volcan")) {
                             Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+                            System.out.println("\n ************************");
+                            combat.startCombat(volcan);
                         } else if (saisieArene.equalsIgnoreCase("MARE ACIDE")
                                 || saisieArene.equalsIgnoreCase("mare acide")) {
                             Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                            System.out.println("\n ************************");
+                            combat.startCombat(mareAcide);
                         } else {
                             System.out.println("L'arène saisie n'est pas valide.");
                         }
@@ -211,19 +196,6 @@ public class SimulationEntrainement {
                             ||
                             saisieArene.equalsIgnoreCase("MARE ACIDE") || saisieArene.equalsIgnoreCase("mare acide")));
 
-                    System.out.println("\n**************************************");
-
-                    System.out.println("RECAPITULATIF AVANT COMBAT : ");
-                    System.out.println(monEntrainement.monPokedex.map.get(pokeAttacker) + " VERSUS "
-                            + monEntrainement.monPokedex.map.get(pokeDefender));
-                    System.out.println(" vont combattre dans l'arène : " + saisieArene);
-
-                    System.out.println(
-                            "\n" + monEntrainement.monPokedex.map.get(pokeAttacker) + " va ataquer en premier !");
-
-                    System.out.println("\n**************************************");
-
-                    // Ici Le combat va commencer
                 }
                 case 6 -> {
                     System.out.println("Au revoir, à bientot ! ...et le terminal se ferme");

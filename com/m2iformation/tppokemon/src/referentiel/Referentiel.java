@@ -1,17 +1,17 @@
 package referentiel;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 
 public class Referentiel {
     // private static Random rand = new Random();
     // private static int max = 4;
     // private static int min = 1;
+    public Map<Integer, Espece> map = new HashMap<>();
+
     public Referentiel() {
         reset();
     }
@@ -39,9 +39,6 @@ public class Referentiel {
     public Map<Integer, Espece> getMap() {
         return map;
     }
-
-    // private Map<Integer, Espece> map = new HashMap<>();
-    public Map<Integer, Espece> map = new HashMap<>();
 
     public Collection<Espece> recupAllPoke() {
         return this.map.values();
@@ -73,16 +70,6 @@ public class Referentiel {
                         + entrees.getValue().getPointsXp());
             }
         }
-    }
-    // public void updatePoke(Espece espece) {
-    // if(this.map.containsKey(espece.getId())){
-    // this.map.put(espece.getPokeId(),espece);
-    // }
-
-    // }
-
-    public void updatePoke(Espece espece) {
-
     }
 
 }

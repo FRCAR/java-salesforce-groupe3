@@ -2,8 +2,13 @@ package referentiel;
 
 public class Salameche extends Espece {
 
+    // private double RandomId = Math.random()*150;
 
-    // private Integer RandomId = Math.random()*150;
+    // public Object salameche1;
+
+    // // private Integer RandomId = Math.random()*150;
+
+    // public Object salameche1;
 
     public Salameche(Integer pokeId, String surnom, String espece, EnumType type, int pointsXp, int pointsDeVieMax) {
         this.pokeId = pokeId;
