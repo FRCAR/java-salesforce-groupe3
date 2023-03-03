@@ -36,10 +36,10 @@ public class Attaque {
                 multiplicateur *= 1.25;
             }
         } else if (pokemonAttaquant.EnumType == EnumType.FEU) {
-            if (pokemonDefenseur.EnumType == EnumType.AIR) {
+            if (pokemonDefenseur.EnumType == EnumType.VOL) {
                 multiplicateur *= 1;
             }
-        } else if (pokemonAttaquant.EnumType == EnumType.AIR) {
+        } else if (pokemonAttaquant.EnumType == EnumType.VOL) {
             if (pokemonDefenseur.EnumType == EnumType.SOL) {
                 multiplicateur *= 0.75;
             }
