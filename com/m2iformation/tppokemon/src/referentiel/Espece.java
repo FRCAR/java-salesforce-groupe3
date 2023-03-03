@@ -1,8 +1,7 @@
 package referentiel;
 
 abstract public class Espece {
-    public static final EnumType EnumType = null;
-    protected double pokeId;
+    protected Integer pokeId;
     protected String surnom;
     protected String espece;
     protected EnumType type;
@@ -10,9 +9,12 @@ abstract public class Espece {
     protected int pointsDeVieMax;
     protected int pointsXp;
 
-    abstract public double getPokeId();
+    abstract public Integer getPokeId();
 
-    abstract public String getSurnom();
+    public String getSurnom() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSurnom'");
+    }
 
     abstract public void setSurnom(String surnom);
 
@@ -29,5 +31,15 @@ abstract public class Espece {
     abstract public int getPointsXp();
 
     abstract public void setPointsXp(int pointsXp);
+
+    @Override
+    public String toString() {
+        return " " + surnom + " : un " + espece + "";
+        // return "Espece [pokeId=" + pokeId + ", surnom=" + surnom + ", espece=" +
+        // espece + ", type=" + type
+        // + ", pointsDeVie=" + pointsDeVie + ", pointsDeVieMax=" + pointsDeVieMax + ",
+        // pointsXp=" + pointsXp
+        // + "]";
+    }
 
 }
