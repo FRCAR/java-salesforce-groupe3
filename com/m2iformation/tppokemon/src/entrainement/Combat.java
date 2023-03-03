@@ -15,6 +15,7 @@ import referentiel.Referentiel;
 public class Combat {
     private Espece pokemon1;
     private Espece pokemon2;
+    private Referentiel monPokedex;
 
     public void shufflePoke(Object[] objects, int n) {
         // Creating a object for Random class
@@ -47,6 +48,14 @@ public class Combat {
 
     public void startCombat(EnumArene nomArene) {
         System.out.println("Le combat dans " + nomArene + " entre " + pokemon1 + " et " + pokemon2 + " commence !");
+        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+        pokemon1.setPointsDeVie(pokemon1.getPointsDeVie() - volcan.getEffetUnique());
+        pokemon2.setPointsDeVie(pokemon2.getPointsDeVie() - volcan.getEffetUnique());
+        System.out.println("L'effet unique de l'arene " + EnumArene.VOLCAN + " s'applique ! ");
+        System.out.println("Les points de vie de " + pokemon1.getSurnom()
+                + " sont de " + pokemon1.getPointsDeVie());
+        System.out.println("Les points de vie de " + pokemon2.getSurnom()
+                + " sont de " + pokemon2.getPointsDeVie());
     }
 
     public void attaque() {

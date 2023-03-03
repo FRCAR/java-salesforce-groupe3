@@ -40,10 +40,10 @@ public class Referentiel {
         return map;
     }
 
-    private Map<Integer, Espece> map = new HashMap<>();
+    // private Map<Integer, Espece> map = new HashMap<>();
+    public Map<Integer, Espece> map = new HashMap<>();
 
     public Collection<Espece> recupAllPoke() {
-
         return this.map.values();
     }
 

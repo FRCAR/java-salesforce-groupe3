@@ -31,25 +31,25 @@ public class Attaque {
         Attaque attaque_air = new Attaque("battements", 23);
         Attaque attaque_sol = new Attaque("ecrasement", 18);
 
-        if (pokemonAttaquant.EnumType == EnumType.EAU) {
-            if (pokemonDefenseur.EnumType == EnumType.FEU) {
+        if (pokemonAttaquant.getType() == EnumType.EAU) {
+            if (pokemonDefenseur.getType() == EnumType.FEU) {
                 multiplicateur *= 1.25;
             }
-        } else if (pokemonAttaquant.EnumType == EnumType.FEU) {
-            if (pokemonDefenseur.EnumType == EnumType.VOL) {
+        } else if (pokemonAttaquant.getType() == EnumType.FEU) {
+            if (pokemonDefenseur.getType() == EnumType.VOL) {
                 multiplicateur *= 1;
             }
-        } else if (pokemonAttaquant.EnumType == EnumType.VOL) {
-            if (pokemonDefenseur.EnumType == EnumType.SOL) {
+        } else if (pokemonAttaquant.getType() == EnumType.VOL) {
+            if (pokemonDefenseur.getType() == EnumType.SOL) {
                 multiplicateur *= 0.75;
             }
-        } else if (pokemonAttaquant.EnumType == EnumType.SOL) {
-            if (pokemonDefenseur.EnumType == EnumType.EAU) {
+        } else if (pokemonAttaquant.getType() == EnumType.SOL) {
+            if (pokemonDefenseur.getType() == EnumType.EAU) {
                 multiplicateur *= 1;
             }
         }
 
-        if (pokemonAttaquant.EnumType == attaqueDefenseur) {
+        if (pokemonAttaquant.getType() == pokemonDefenseur.getType()) {
             multiplicateur *= 1;
         }
 

@@ -2,9 +2,6 @@ package referentiel;
 
 public class Salameche extends Espece {
 
-    // private double RandomId = Math.random()*150;
-
-    public Object salameche1;
 
     // private Integer RandomId = Math.random()*150;
 
