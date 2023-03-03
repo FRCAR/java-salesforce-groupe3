@@ -79,7 +79,10 @@ public class SimulationEntrainement {
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
         // commencement du combat
-        combat.startCombat(EnumArene.VOLCAN);
+        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+        combat.startCombat(mareAcide);
         
 
         // Pour récup les pokémons par ordre exp et en ordre croissant
@@ -144,7 +147,7 @@ public class SimulationEntrainement {
                     System.out.println("le deuxième id du pokémon : ");
                     int saisieIdPokemon2 = scannerClavier1.nextInt();
                     List<Object> combattants;
-                    
+
                     // System.out
                     // .println(
                     // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n
@@ -154,17 +157,17 @@ public class SimulationEntrainement {
 
                     System.out
                             .println(
-                                    "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
+                                    "Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                     String saisieArene = scannerClavier1.nextLine();
                     if (saisieArene == "PRAIRIE") {
-                        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                     
                        
                     } else if (saisieArene == "VOLCAN") {
-                        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+                        
                         
                         
                     } else if (saisieArene == "MARE ACIDE") {
-                        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                        
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
