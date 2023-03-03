@@ -82,7 +82,7 @@ public class SimulationEntrainement {
         // Fonction pour choix aléatoire des combattants
         combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
         // commencement du combat
-        combat.startCombat(EnumArene.VOLCAN);
+        // combat.startCombat(EnumArene.VOLCAN);
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
 

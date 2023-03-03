@@ -101,7 +101,7 @@ public class Combat {
             attaque = attaque_eau;
         } else if (pokemon1.getType() == EnumType.SOL || pokemon2.getType() == EnumType.SOL) {
             attaque = attaque_sol;
-        } else if (pokemon1.getType() == EnumType.AIR || pokemon2.getType() == EnumType.AIR) {
+        } else if (pokemon1.getType() == EnumType.VOL || pokemon2.getType() == EnumType.VOL) {
             attaque = attaque_air;
         } else if (pokemon1.getType() == EnumType.FEU || pokemon2.getType() == EnumType.FEU) {
             attaque = attaque_feu;
