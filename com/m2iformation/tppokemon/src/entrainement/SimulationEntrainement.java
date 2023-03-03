@@ -78,7 +78,10 @@ public class SimulationEntrainement {
         Combat combat = new Combat();
         //Fonction pour choix aléatoire des combattants
         combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
+        //commencement du combat
         combat.startCombat(EnumArene.VOLCAN);
+        // initialisation des points de vie
+        combat.initialisationPointsDeVie();
     
      
         // Pour récup les pokémons par ordre exp et en ordre croissant
