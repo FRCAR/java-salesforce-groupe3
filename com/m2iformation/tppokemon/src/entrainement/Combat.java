@@ -44,7 +44,7 @@ public class Combat {
 
     public Object[] recupCombattants() {
         Object[] poke = { pokemon1, pokemon2 };
-        
+
         return poke;
     }
 
@@ -64,46 +64,53 @@ public class Combat {
         int compteur = 0;
         Object[] mesCombattants = this.recupCombattants();
         while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece) mesCombattants[1]).getPointsDeVie() >= 0) {
-            if (((Espece) mesCombattants[0]).getPointsDeVie() == 0 || ((Espece) mesCombattants[1]).getPointsDeVie() == 0) {
+            if (((Espece) mesCombattants[0]).getPointsDeVie() == 0|| ((Espece) mesCombattants[1]).getPointsDeVie() == 0) {
                 if (((Espece) mesCombattants[0]).getPointsDeVie() == 0) {
                     System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! "
                             + ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
+                            System.out.println();
                     break;
                 } else {
                     System.out.println(((Espece) mesCombattants[1]).toString() + " est ko ! "
                             + ((Espece) mesCombattants[0]).toString() + " l'importe ! ");
+                            System.out.println();
                     break;
                 }
             } else if (compteur == 0 && EnumArene.VOLCAN == arene.getNom()) {
-                ((Espece) mesCombattants[0]).setPointsDeVie(((Espece) mesCombattants[0]).getPointsDeVie() - arene.getEffetUnique());
-                ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - arene.getEffetUnique());
+                ((Espece) mesCombattants[0])
+                        .setPointsDeVie(((Espece) mesCombattants[0]).getPointsDeVie() - arene.getEffetUnique());
+                ((Espece) mesCombattants[1])
+                        .setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - arene.getEffetUnique());
                 System.out.println("L'effet unique de l'arene " + arene.getNom() + " s'applique ! ");
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[0]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[0]).getPointsDeVie());
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[1]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[1]).getPointsDeVie());
-                System.out.println(((Espece) mesCombattants[0]) + " attaque en premier !");
-                        this.attaque();
+              
+                this.attaque();
             } else if (compteur >= 0 && EnumArene.PRAIRIE == arene.getNom()) {
                 System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet");
-                System.out.println(((Espece) mesCombattants[0]) + " attaque en premier !");
+               
                 this.attaque();
             } else if (compteur > 0 && arene.getNom() == EnumArene.VOLCAN) {
                 System.out.println("L'arène " + arene.getNom() + " n'a pas d'effet permanent");
-                System.out.println(((Espece) mesCombattants[0]) + " attaque en premier !");
+              
                 this.attaque();
             } else if (compteur >= 0 && EnumArene.MARE_ACIDE == arene.getNom()) {
-              
-                ((Espece) mesCombattants[0]).setPointsDeVie(((Espece) mesCombattants[0]).getPointsDeVie() - arene.getEffetPermanent());
-                ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - arene.getEffetPermanent());
+
+                ((Espece) mesCombattants[0])
+                        .setPointsDeVie(((Espece) mesCombattants[0]).getPointsDeVie() - arene.getEffetPermanent());
+                ((Espece) mesCombattants[1])
+                        .setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - arene.getEffetPermanent());
                 System.out.println("L'effet permanent de l'arene " + arene.getNom() + " s'applique ! ");
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[0]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[0]).getPointsDeVie());
                 System.out.println("Les points de vie de " + ((Espece) mesCombattants[1]).getSurnom()
                         + " sont de " + ((Espece) mesCombattants[1]).getPointsDeVie());
-                System.out.println(((Espece) mesCombattants[0]) + " attaque en premier !");
+   
                 this.attaque();
-                        
+                System.out.println("");
+
             }
             compteur++;
         }
@@ -113,53 +120,79 @@ public class Combat {
         // définir type d'attaque par pokemon
         Attaque attaque = new Attaque(null, 0);
         Object[] mesCombattants = this.recupCombattants();
-       
-        // while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece) mesCombattants[1]).getPointsDeVie() >= 0){
-            
-            this.shufflePoke(mesCombattants, 2);
-            // if(((Espece) mesCombattants[0]).getPointsDeVie() == 0 || ((Espece) mesCombattants[1]).getPointsDeVie() == 0){    
-            // if (((Espece) mesCombattants[0]).getPointsDeVie() <= 0) {
-            //         System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! " + ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
-            //         break;
-            //     } else if (((Espece) mesCombattants[1]).getPointsDeVie() <= 0) {
-            //         System.out.println(
-            //                 ((Espece) mesCombattants[1]) + " est ko ! " + ((Espece) mesCombattants[0]).toString() + " l'importe ! ");
-            //         break;
-            //     } 
-            // } else {
-            System.out.println(((Espece) mesCombattants[0]).toString() + " attaque :");
-            if (((Espece) mesCombattants[0]).getType() == EnumType.EAU || ((Espece) mesCombattants[1]).getType() == EnumType.EAU) {
-                attaque = attaque_eau;
-            } else if (((Espece) mesCombattants[0]).getType() == EnumType.SOL || ((Espece) mesCombattants[1]).getType() == EnumType.SOL) {
-                attaque = attaque_sol;
-            } else if (((Espece) mesCombattants[0]).getType() == EnumType.VOL || ((Espece) mesCombattants[1]).getType() == EnumType.VOL) {
-                attaque = attaque_air;
-            } else if (((Espece) mesCombattants[0]).getType() == EnumType.FEU || ((Espece) mesCombattants[1]).getType() == EnumType.FEU) {
-                attaque = attaque_feu;
-            }
-            int calculDegats = (int) (attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2));
-            ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - calculDegats);
-           
-            System.out
-                    .println( ((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie());
-            // }  
-            ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
-            System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
-                    + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
-        }
-     
-    // }
-   
 
-        //     System.out.println("start: pokemon2 attaque:");
-        //     int calculDegats2 = attaque.getDegats() * attaque.calculDegats(pokemon2, pokemon1);
-        //     pokemon2.setPointsDeVie(ptsVie1 - calculDegats2);
-        //     System.out
-        //             .println("poke1 a perdu " + calculDegats + "pts de vie. il lui reste:" + pokemon1.getPointsDeVie());
-        // } ;
+        // while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece)
+        // mesCombattants[1]).getPointsDeVie() >= 0){
+
+        this.shufflePoke(mesCombattants, 2);
+        // if(((Espece) mesCombattants[0]).getPointsDeVie() == 0 || ((Espece)
+        // mesCombattants[1]).getPointsDeVie() == 0){
+        // if (((Espece) mesCombattants[0]).getPointsDeVie() <= 0) {
+        // System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! " +
+        // ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
+        // break;
+        // } else if (((Espece) mesCombattants[1]).getPointsDeVie() <= 0) {
+        // System.out.println(
+        // ((Espece) mesCombattants[1]) + " est ko ! " + ((Espece)
+        // mesCombattants[0]).toString() + " l'importe ! ");
+        // break;
+        // }
+        // } else {
+        System.out.println(((Espece) mesCombattants[0]).toString() + " attaque :");
+        if (((Espece) mesCombattants[0]).getType() == EnumType.EAU
+                || ((Espece) mesCombattants[1]).getType() == EnumType.EAU) {
+            attaque = attaque_eau;
+        } else if (((Espece) mesCombattants[0]).getType() == EnumType.SOL
+                || ((Espece) mesCombattants[1]).getType() == EnumType.SOL) {
+            attaque = attaque_sol;
+        } else if (((Espece) mesCombattants[0]).getType() == EnumType.VOL
+                || ((Espece) mesCombattants[1]).getType() == EnumType.VOL) {
+            attaque = attaque_air;
+        } else if (((Espece) mesCombattants[0]).getType() == EnumType.FEU
+                || ((Espece) mesCombattants[1]).getType() == EnumType.FEU) {
+            attaque = attaque_feu;
+        }
+      
+        int calculDegats = (int) (attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2));
+        ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - calculDegats);
+        if (((Espece) mesCombattants[1]).getPointsDeVie() < 0) {
+            ((Espece) mesCombattants[1]).setPointsDeVie(0);
+        System.out
+                .println(((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats
+                        + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie());
     
+        }
+
+
+       
+    // }
+        // // }
+        // ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
+        // System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
+        //         + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
+    }
+
+
+    // }
+
+    // System.out.println("start: pokemon2 attaque:");
+    // int calculDegats2 = attaque.getDegats() * attaque.calculDegats(pokemon2,
+    // pokemon1);
+    // pokemon2.setPointsDeVie(ptsVie1 - calculDegats2);
+    // System.out
+    // .println("poke1 a perdu " + calculDegats + "pts de vie. il lui reste:" +
+    // pokemon1.getPointsDeVie());
+    // } ;
 
     public void update() {
+        Object[] mesCombattants = this.recupCombattants();
 
+        // while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece)
+        // mesCombattants[1]).getPointsDeVie() >= 0){
+
+        this.shufflePoke(mesCombattants, 2);
+        ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
+        System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
+                + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
     }
 }
