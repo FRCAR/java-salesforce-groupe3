@@ -22,7 +22,7 @@ public class Attaque {
         this.degats = degats;
     }
 
-    public int calculDegats(Espece pokemonAttaquant, Espece pokemonDefenseur) {
+    public double calculDegats(Espece pokemonAttaquant, Espece pokemonDefenseur) {
         double multiplicateur = 1.0;
 
         if ((pokemonAttaquant.getType() == EnumType.EAU) && (pokemonDefenseur.getType() == EnumType.EAU)
@@ -38,21 +38,21 @@ public class Attaque {
                 || (pokemonAttaquant
                         .getType() == EnumType.FEU) && (pokemonDefenseur.getType() == EnumType.VOL)) {
 
-            multiplicateur *= 1;
+            multiplicateur = multiplicateur * 1;
         } else if ((pokemonAttaquant.getType() == EnumType.FEU && pokemonDefenseur.getType() == EnumType.EAU)
                 || (pokemonAttaquant.getType() == EnumType.EAU && pokemonDefenseur.getType() == EnumType.VOL)
                 || (pokemonAttaquant.getType() == EnumType.VOL && pokemonDefenseur.getType() == EnumType.SOL)
                 || (pokemonAttaquant.getType() == EnumType.SOL && pokemonDefenseur.getType() == EnumType.FEU)) {
-            multiplicateur *= 0.75;
+            multiplicateur = multiplicateur * 0.75;
         } else if ((pokemonAttaquant.getType() == EnumType.VOL && pokemonDefenseur.getType() == EnumType.EAU)
                 || (pokemonAttaquant.getType() == EnumType.EAU && pokemonDefenseur.getType() == EnumType.FEU)
                 || (pokemonAttaquant.getType() == EnumType.SOL && pokemonDefenseur.getType() == EnumType.VOL)
                 || (pokemonAttaquant.getType() == EnumType.FEU && pokemonDefenseur.getType() == EnumType.SOL)) {
-            multiplicateur *= 1.25;
+            multiplicateur = multiplicateur * 1.25;
         }
 
-        int degats = (int) Math.round(multiplicateur);
-        return degats;
+        // int degats = (int) Math.round(multiplicateur);
+        return multiplicateur;
     }
 
 }

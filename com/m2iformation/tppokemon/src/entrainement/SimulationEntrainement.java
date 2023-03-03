@@ -96,7 +96,6 @@ public class SimulationEntrainement {
         boolean bool = true;
         Scanner scannerClavier1 = new Scanner(System.in);
         while (bool) {
-
             System.out.println("Taper 1 - afficher tous les identifiants et noms d'un pokémon");
             System.out.println("Taper 2 - afficher la liste d'un pokémon, trié par expérience par odre décroissante");
             System.out.println("Taper 3 - afficher le détail d'un pokémon");
@@ -143,7 +142,7 @@ public class SimulationEntrainement {
                     System.out.println("\n");
                 }
                 case 5 -> {
-
+                    combat.initialisationPointsDeVie();
                     System.out
                             .println(
                                     "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n Taper 3 - MARE ACIDE : ");
@@ -170,7 +169,14 @@ public class SimulationEntrainement {
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
-
+                    // System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir
+                    // combattre \n");
+                    // System.out.println("le premier id du pokémon : ");
+                    // int saisieIdPokemon1 = scannerClavier1.nextInt();
+                    // System.out.println("le deuxième id du pokémon : ");
+                    // int saisieIdPokemon2 = scannerClavier1.nextInt();
+                    // combat.attaque(recupPokeParId(saisieIdPokemon1),
+                    // recupPokeParId(saisieIdPokemon2));
                     // Ici Le combat va commencer
                 }
                 case 6 -> {
