@@ -1,6 +1,9 @@
 package entrainement;
 
 import java.security.KeyStore.Entry;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -70,7 +73,15 @@ public class SimulationEntrainement {
     public static void main(String[] args) throws Exception {
         SimulationEntrainement monEntrainement = new SimulationEntrainement();
         monEntrainement.monPokedex = new Referentiel();
-
+        Combat combat = new Combat();
+        //Fonction pour choix aléatoire des combattants
+        combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
+        //commencement du combat
+        combat.startCombat(EnumArene.VOLCAN);
+        // initialisation des points de vie
+        combat.initialisationPointsDeVie();
+    
+     
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
 
@@ -106,6 +117,7 @@ public class SimulationEntrainement {
                     // Ici j'affiche les Id et les noms des pokémons
                     // monPokedex.RecupAllPoke(poke);
                     monEntrainement.afficheAllPoke();
+                    
                 }
                 case 2 -> {
                     System.out.println("Voila la liste d'un pokémon, trié par expérience par odre décroissante : \n");
@@ -143,6 +155,15 @@ public class SimulationEntrainement {
                             .println(
                                     "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                     String saisieArene = scannerClavier1.nextLine();
+                    if(saisieArene == "PRAIRIE"){
+                        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                    } else if (saisieArene == "VOLCAN"){
+                        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+                    } else if (saisieArene == "MARE ACIDE"){
+                        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                    } else {
+                        System.out.println("L'arene saisie n'est pas valide");
+                    }
                     // Ici Le combat va commencer
                 }
                 case 6 -> {

@@ -34,9 +34,10 @@ abstract public class Espece {
 
     @Override
     public String toString() {
-        return "Espece [pokeId=" + pokeId + ", surnom=" + surnom + ", espece=" + espece + ", type=" + type
-                + ", pointsDeVie=" + pointsDeVie + ", pointsDeVieMax=" + pointsDeVieMax + ", pointsXp=" + pointsXp
-                + "]";
+        return " " +surnom +" : un " +espece+ "";
+        // return "Espece [pokeId=" + pokeId + ", surnom=" + surnom + ", espece=" + espece + ", type=" + type
+        //         + ", pointsDeVie=" + pointsDeVie + ", pointsDeVieMax=" + pointsDeVieMax + ", pointsXp=" + pointsXp
+        //         + "]";
     }
 
 }
