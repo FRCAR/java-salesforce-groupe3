@@ -16,9 +16,9 @@ public class Referentiel {
         reset();
     }
 
-    public void reset(){
+    public void reset() {
         this.map.clear();
-    
+
         Roucoul roucoul1 = new Roucoul(1, "Chouchou", "Roucoul",
                 EnumType.VOL, 10, 90);
         Carapuce carapuce1 = new Carapuce(2, "Cara",
@@ -84,6 +84,5 @@ public class Referentiel {
     public void updatePoke(Espece espece) {
 
     }
-
 
 }
