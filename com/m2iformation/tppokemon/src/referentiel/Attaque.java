@@ -28,25 +28,25 @@ public class Attaque {
         if ((pokemonAttaquant.getType() == EnumType.EAU) && (pokemonDefenseur.getType() == EnumType.EAU)
                 || (pokemonAttaquant.getType() == EnumType.EAU) && (pokemonDefenseur.getType() == EnumType.SOL)
                 || (pokemonAttaquant
-                        .getType() == EnumType.AIR) && (pokemonDefenseur.getType() == EnumType.AIR)
+                        .getType() == EnumType.VOL) && (pokemonDefenseur.getType() == EnumType.VOL)
                 || (pokemonAttaquant
-                        .getType() == EnumType.AIR) && (pokemonDefenseur.getType() == EnumType.FEU)
+                        .getType() == EnumType.VOL) && (pokemonDefenseur.getType() == EnumType.FEU)
                 || (pokemonAttaquant.getType() == EnumType.SOL) && (pokemonDefenseur.getType() == EnumType.EAU)
                 || (pokemonAttaquant
                         .getType() == EnumType.SOL) && (pokemonDefenseur.getType() == EnumType.SOL)
                 || (pokemonAttaquant.getType() == EnumType.FEU) && (pokemonDefenseur.getType() == EnumType.FEU)
                 || (pokemonAttaquant
-                        .getType() == EnumType.FEU) && (pokemonDefenseur.getType() == EnumType.AIR)) {
+                        .getType() == EnumType.FEU) && (pokemonDefenseur.getType() == EnumType.VOL)) {
 
             multiplicateur *= 1;
         } else if ((pokemonAttaquant.getType() == EnumType.FEU && pokemonDefenseur.getType() == EnumType.EAU)
-                || (pokemonAttaquant.getType() == EnumType.EAU && pokemonDefenseur.getType() == EnumType.AIR)
-                || (pokemonAttaquant.getType() == EnumType.AIR && pokemonDefenseur.getType() == EnumType.SOL)
+                || (pokemonAttaquant.getType() == EnumType.EAU && pokemonDefenseur.getType() == EnumType.VOL)
+                || (pokemonAttaquant.getType() == EnumType.VOL && pokemonDefenseur.getType() == EnumType.SOL)
                 || (pokemonAttaquant.getType() == EnumType.SOL && pokemonDefenseur.getType() == EnumType.FEU)) {
             multiplicateur *= 0.75;
-        } else if ((pokemonAttaquant.getType() == EnumType.AIR && pokemonDefenseur.getType() == EnumType.EAU)
+        } else if ((pokemonAttaquant.getType() == EnumType.VOL && pokemonDefenseur.getType() == EnumType.EAU)
                 || (pokemonAttaquant.getType() == EnumType.EAU && pokemonDefenseur.getType() == EnumType.FEU)
-                || (pokemonAttaquant.getType() == EnumType.SOL && pokemonDefenseur.getType() == EnumType.AIR)
+                || (pokemonAttaquant.getType() == EnumType.SOL && pokemonDefenseur.getType() == EnumType.VOL)
                 || (pokemonAttaquant.getType() == EnumType.FEU && pokemonDefenseur.getType() == EnumType.SOL)) {
             multiplicateur *= 1.25;
         }

@@ -85,6 +85,7 @@ public class SimulationEntrainement {
         // combat.startCombat(EnumArene.VOLCAN);
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
+        // commencement du combat
 
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
@@ -154,11 +155,13 @@ public class SimulationEntrainement {
                             .println(
                                     "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                     String saisieArene = scannerClavier1.nextLine();
-                    if (saisieArene == "PRAIRIE") {
+                    if (saisieArene == 1) {
                         Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
-                    } else if (saisieArene == "VOLCAN") {
+                        combat.startCombat(prairie);
+                    } else if (saisieArene == 2) {
                         Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
-                    } else if (saisieArene == "MARE ACIDE") {
+                        combat.startCombat(volcan);
+                    } else if (saisieArene == 3) {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");

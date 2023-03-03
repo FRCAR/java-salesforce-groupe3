@@ -20,7 +20,7 @@ public class Referentiel {
         this.map.clear();
 
         Roucoul roucoul1 = new Roucoul(1, "Chouchou", "Roucoul",
-                EnumType.AIR, 10, 90);
+                EnumType.VOL, 10, 90);
         Carapuce carapuce1 = new Carapuce(2, "Cara",
                 "Carapuce",
                 EnumType.EAU, 25, 100);
