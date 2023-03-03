@@ -145,6 +145,15 @@ public class SimulationEntrainement {
                             .println(
                                     "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                     String saisieArene = scannerClavier1.nextLine();
+                    if(saisieArene == "PRAIRIE"){
+                        Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
+                    } else if (saisieArene == "VOLCAN"){
+                        Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
+                    } else if (saisieArene == "MARE ACIDE"){
+                        Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                    } else {
+                        System.out.println("L'arene saisie n'est pas valide");
+                    }
                     // Ici Le combat va commencer
                 }
                 case 6 -> {

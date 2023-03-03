@@ -18,7 +18,7 @@ public class Combat {
     }
 
     public void startCombat(String nomArene, int pokemon1, int pokemon2) {
-
+        System.out.println("Le combat dans " + nomArene + " entre " + pokemon1 + " et " + pokemon2 + " commence !");
     }
 
     public void attaque() {
