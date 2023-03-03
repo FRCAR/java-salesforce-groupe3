@@ -12,6 +12,8 @@ public class Referentiel {
     // private static Random rand = new Random();
     // private static int max = 4;
     // private static int min = 1;
+    private Map<Integer, Espece> map = new HashMap<>();
+
     public Referentiel() {
         reset();
     }
@@ -39,8 +41,6 @@ public class Referentiel {
     public Map<Integer, Espece> getMap() {
         return map;
     }
-
-    private Map<Integer, Espece> map = new HashMap<>();
 
     public Collection<Espece> recupAllPoke() {
         return this.map.values();
@@ -73,15 +73,6 @@ public class Referentiel {
             }
         }
     }
-    // public void updatePoke(Espece espece) {
-    // if(this.map.containsKey(espece.getId())){
-    // this.map.put(espece.getPokeId(),espece);
-    // }
-
-    // }
-
-    public void updatePoke(Espece espece) {
-
-    }
+ 
 
 }

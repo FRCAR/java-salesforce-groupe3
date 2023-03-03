@@ -24,7 +24,8 @@ public class SimulationEntrainement {
     private Combat monCombat;
     private static Espece monPoke;
     private Referentiel monPokedex;
-
+    static Referentiel newPokedex = new Referentiel();
+    
     public static void afficheAllArene() {
         System.out.println("");
         for (EnumArene arena : EnumArene.values()) {
@@ -49,7 +50,7 @@ public class SimulationEntrainement {
         }
     }
 
-    static Referentiel newPokedex = new Referentiel();
+
 
     public static Espece recupPokeParId(Integer id) {
         for (Espece entrees : newPokedex.recupAllPoke()) {
