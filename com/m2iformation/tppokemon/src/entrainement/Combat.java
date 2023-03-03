@@ -21,7 +21,6 @@ public class Combat {
     private Attaque attaque_eau = new Attaque("plouf", 20);
     private Attaque attaque_air = new Attaque("battements", 23);
     private Attaque attaque_sol = new Attaque("ecrasement", 18);
-  
 
     public void shufflePoke(Object[] objects, int n) {
         // Creating a object for Random class
@@ -40,13 +39,15 @@ public class Combat {
         // System.out.println("pokemon 1 :" + objects[0].toString());
         // System.out.println("pokemon 2 :" + objects[1].toString());
         pokemon1 = (Espece) objects[0];
-        pokemon2 = (Espece) objects[1];   
+        pokemon2 = (Espece) objects[1];
     }
-    public Object[] recupCombattants(){
+
+    public Object[] recupCombattants() {
         Object[] poke = { pokemon1, pokemon2 };
         
         return poke;
     }
+
     public void initialisationPointsDeVie() {
         pokemon1.setPointsDeVie(pokemon1.getPointsDeVieMax());
         pokemon2.setPointsDeVie(pokemon2.getPointsDeVieMax());
@@ -65,10 +66,12 @@ public class Combat {
         while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece) mesCombattants[1]).getPointsDeVie() >= 0) {
             if (((Espece) mesCombattants[0]).getPointsDeVie() == 0 || ((Espece) mesCombattants[1]).getPointsDeVie() == 0) {
                 if (((Espece) mesCombattants[0]).getPointsDeVie() == 0) {
-                    System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! " + ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
+                    System.out.println(((Espece) mesCombattants[0]).toString() + " est ko ! "
+                            + ((Espece) mesCombattants[1]).toString() + " l'importe ! ");
                     break;
                 } else {
-                    System.out.println(((Espece) mesCombattants[1]).toString() + " est ko ! " + ((Espece) mesCombattants[0]).toString() + " l'importe ! ");
+                    System.out.println(((Espece) mesCombattants[1]).toString() + " est ko ! "
+                            + ((Espece) mesCombattants[0]).toString() + " l'importe ! ");
                     break;
                 }
             } else if (compteur == 0 && EnumArene.VOLCAN == arene.getNom()) {
@@ -134,12 +137,15 @@ public class Combat {
             } else if (((Espece) mesCombattants[0]).getType() == EnumType.FEU || ((Espece) mesCombattants[1]).getType() == EnumType.FEU) {
                 attaque = attaque_feu;
             }
-            int calculDegats = attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2);
+            int calculDegats = (int) (attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2));
             ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - calculDegats);
            
             System.out
                     .println( ((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie());
             // }  
+            ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
+            System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
+                    + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
         }
      
     // }
