@@ -1,15 +1,42 @@
 package entrainement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import referentiel.Espece;
+import referentiel.Referentiel;
 
 public class Combat {
-    public static Map<Integer, Espece> map = new HashMap<>();
+   
     
+    public void shufflePoke(Object[] objects, int n) {
+      
+        // Creating a object for Random class
+        Random r = new Random();
+         
+        // Start from the last element and swap one by one. We don't
+        // need to run for the first element that's why i > 0
+        for (int i = n-1; i > 0; i--) {
+             
+            // Pick a random index from 0 to i
+            int j = r.nextInt(i+1);
+             
+            // Swap arr[i] with the element at random index
+            Object temp = objects[i];
+            objects[i] = objects[j];
+            objects[j] = temp;
+            
+        }
+        // Prints the random array
+        System.out.println("pokemon 1 :" + objects[0].toString());
+        System.out.println("pokemon 2 :" + objects[1].toString());
     
-    public void shufflePoke() {
 
     }
 
