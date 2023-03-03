@@ -144,17 +144,17 @@ public class SimulationEntrainement {
                 }
                 case 5 -> {
 
-                    // System.out
-                    // .println(
-                    // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n
-                    // Taper
-                    // 3 - MARE ACIDE : ");
-                    // Integer saisieArene = scannerClavier1.nextInt();
-
                     System.out
                             .println(
-                                    "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
-                    String saisieArene = scannerClavier1.nextLine();
+                                    "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n Taper 3 - MARE ACIDE : ");
+                    Integer saisieArene = scannerClavier1.nextInt();
+
+                    /*
+                     * System.out
+                     * .println(
+                     * "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
+                     * String saisieArene = scannerClavier1.nextLine();
+                     */
                     if (saisieArene == 1) {
                         Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
                         combat.startCombat(prairie);
