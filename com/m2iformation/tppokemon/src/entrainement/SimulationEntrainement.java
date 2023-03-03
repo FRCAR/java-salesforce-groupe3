@@ -22,8 +22,7 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
-    private  Referentiel monPokedex;
-
+    private Referentiel monPokedex;
 
     public static void afficheAllArene() {
         System.out.println("");
@@ -48,7 +47,6 @@ public class SimulationEntrainement {
                     + entrees.getEspece() + "\n");
         }
     }
-
 
     public void recupPokeParId(Integer id) {
         for (Espece entrees : this.monPokedex.recupAllPoke()) {
@@ -76,14 +74,14 @@ public class SimulationEntrainement {
         SimulationEntrainement monEntrainement = new SimulationEntrainement();
         monEntrainement.monPokedex = new Referentiel();
         Combat combat = new Combat();
-        //Fonction pour choix aléatoire des combattants
+        // Fonction pour choix aléatoire des combattants
         combat.shufflePoke(monEntrainement.monPokedex.recupAllPoke().stream().toArray(), 4);
-        //commencement du combat
-        combat.startCombat(EnumArene.VOLCAN);
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
-    
-     
+        // commencement du combat
+        combat.startCombat(EnumArene.VOLCAN);
+        
+
         // Pour récup les pokémons par ordre exp et en ordre croissant
         // monPokedex.RecupAllPokeParOrdre(mesPokes);
 
@@ -119,7 +117,7 @@ public class SimulationEntrainement {
                     // Ici j'affiche les Id et les noms des pokémons
                     // monPokedex.RecupAllPoke(poke);
                     monEntrainement.afficheAllPoke();
-                    
+
                 }
                 case 2 -> {
                     System.out.println("Voila la liste d'un pokémon, trié par expérience par odre décroissante : \n");
@@ -131,7 +129,7 @@ public class SimulationEntrainement {
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
                     saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
-                   monEntrainement.afficheDetailPoke(saisieNext);
+                    monEntrainement.afficheDetailPoke(saisieNext);
                 }
                 case 4 -> {
                     System.out.println("Voila la liste de toutes les arènes : ");
@@ -145,7 +143,8 @@ public class SimulationEntrainement {
                     int saisieIdPokemon1 = scannerClavier1.nextInt();
                     System.out.println("le deuxième id du pokémon : ");
                     int saisieIdPokemon2 = scannerClavier1.nextInt();
-
+                    List<Object> combattants;
+                    
                     // System.out
                     // .println(
                     // "Combart sur quel arène ? : \n Taper 1 - PRAIRIE \n Taper 2 - VOLCAN \n
@@ -157,11 +156,14 @@ public class SimulationEntrainement {
                             .println(
                                     "Combart sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                     String saisieArene = scannerClavier1.nextLine();
-                    if(saisieArene == "PRAIRIE"){
+                    if (saisieArene == "PRAIRIE") {
                         Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
-                    } else if (saisieArene == "VOLCAN"){
+                       
+                    } else if (saisieArene == "VOLCAN") {
                         Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
-                    } else if (saisieArene == "MARE ACIDE"){
+                        
+                        
+                    } else if (saisieArene == "MARE ACIDE") {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
