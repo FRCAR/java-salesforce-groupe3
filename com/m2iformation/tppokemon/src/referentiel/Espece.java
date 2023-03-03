@@ -1,6 +1,7 @@
 package referentiel;
 
 abstract public class Espece {
+    public static final EnumType EnumType = null;
     protected double pokeId;
     protected String surnom;
     protected String espece;

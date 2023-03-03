@@ -1,14 +1,14 @@
 package referentiel;
 
+public class Salameche extends Espece {
 
+    // private double RandomId = Math.random()*150;
 
-public class Salameche extends Espece{
+    public Object salameche1;
 
-   // private double RandomId = Math.random()*150;
-
-    public Salameche(double pokeId, String surnom, String espece, EnumType type, int pointsDeVieMax){
+    public Salameche(double pokeId, String surnom, String espece, EnumType type, int pointsDeVieMax) {
         this.pokeId = pokeId;
-        this.surnom =  surnom;
+        this.surnom = surnom;
         this.espece = espece;
         this.type = type;
         this.pointsDeVieMax = pointsDeVieMax;
@@ -26,7 +26,7 @@ public class Salameche extends Espece{
 
     @Override
     public void setSurnom(String surnom) {
-      this.surnom = surnom;
+        this.surnom = surnom;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Salameche extends Espece{
 
     @Override
     public void setPointsDeVie(int pointsDeVie) {
-       this.pointsDeVie = pointsDeVie;
+        this.pointsDeVie = pointsDeVie;
     }
 
     @Override
@@ -56,13 +56,13 @@ public class Salameche extends Espece{
 
     @Override
     public int getPointsXp() {
-       return pointsXp;
+        return pointsXp;
     }
 
     @Override
     public void setPointsXp(int pointsXp) {
         this.pointsXp = pointsXp;
+        // Salameche salemeche1 = new Salameche(RandomId, "monSalameche", "Salameche",
+        // TypeEnum.FEU, 100);
     }
-    // Salameche salemeche1 = new Salameche(RandomId, "monSalameche", "Salameche", TypeEnum.FEU, 100);
-    
 }
