@@ -22,6 +22,7 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
+    private static Espece monPoke;
     private Referentiel monPokedex;
 
     public static void afficheAllArene() {
@@ -48,13 +49,17 @@ public class SimulationEntrainement {
         }
     }
 
-    public void recupPokeParId(Integer id) {
-        for (Espece entrees : this.monPokedex.recupAllPoke()) {
+    static Referentiel newPokedex = new Referentiel();
+
+    public static Espece recupPokeParId(Integer id) {
+        for (Espece entrees : newPokedex.recupAllPoke()) {
             if (id == entrees.getPokeId()) {
                 // return this.map.get(id);
                 System.out.println("Mon index est " + entrees.getPokeId() + " je suis " + entrees.getSurnom());
+                Espece monPoke = entrees;
             }
         }
+        return monPoke;
     }
 
     public void afficheDetailPoke(Integer id) {
@@ -137,11 +142,6 @@ public class SimulationEntrainement {
                     System.out.println("\n");
                 }
                 case 5 -> {
-                    System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre \n");
-                    System.out.println("le premier id du pokémon : ");
-                    int saisieIdPokemon1 = scannerClavier1.nextInt();
-                    System.out.println("le deuxième id du pokémon : ");
-                    int saisieIdPokemon2 = scannerClavier1.nextInt();
 
                     // System.out
                     // .println(
@@ -163,6 +163,12 @@ public class SimulationEntrainement {
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
+                    System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre \n");
+                    System.out.println("le premier id du pokémon : ");
+                    int saisieIdPokemon1 = scannerClavier1.nextInt();
+                    System.out.println("le deuxième id du pokémon : ");
+                    int saisieIdPokemon2 = scannerClavier1.nextInt();
+                    combat.attaque(recupPokeParId(saisieIdPokemon1), recupPokeParId(saisieIdPokemon2));
                     // Ici Le combat va commencer
                 }
                 case 6 -> {

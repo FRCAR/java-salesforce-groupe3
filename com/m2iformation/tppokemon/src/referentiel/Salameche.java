@@ -4,13 +4,13 @@ public class Salameche extends Espece {
 
     // private double RandomId = Math.random()*150;
 
-    public Object salameche1;
+    // public Object salameche1;
 
-   // private Integer RandomId = Math.random()*150;
+    // // private Integer RandomId = Math.random()*150;
 
-    public Object salameche1;
+    // public Object salameche1;
 
-    public Salameche(Integer pokeId, String surnom, String espece, EnumType type, int pointsXp, int pointsDeVieMax){
+    public Salameche(Integer pokeId, String surnom, String espece, EnumType type, int pointsXp, int pointsDeVieMax) {
         this.pokeId = pokeId;
         this.surnom = surnom;
         this.espece = espece;
@@ -67,6 +67,7 @@ public class Salameche extends Espece {
     @Override
     public void setPointsXp(int pointsXp) {
         this.pointsXp = pointsXp;
-    // Salameche salemeche1 = new Salameche(RandomId, "monSalameche", "Salameche", TypeEnum.FEU, 100);
+        // Salameche salemeche1 = new Salameche(RandomId, "monSalameche", "Salameche",
+        // TypeEnum.FEU, 100);
     }
 }
