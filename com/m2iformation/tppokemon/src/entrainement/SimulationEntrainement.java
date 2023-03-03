@@ -19,8 +19,7 @@ public class SimulationEntrainement {
     private Racaillou monRacaillou;
     private Arene monArene;
     private Combat monCombat;
-    private  Referentiel monPokedex;
-
+    private Referentiel monPokedex;
 
     public static void afficheAllArene() {
         System.out.println("");
@@ -45,7 +44,6 @@ public class SimulationEntrainement {
                     + entrees.getEspece() + "\n");
         }
     }
-
 
     public void recupPokeParId(Integer id) {
         for (Espece entrees : this.monPokedex.recupAllPoke()) {
@@ -119,7 +117,7 @@ public class SimulationEntrainement {
                     System.out.println("Saisie moi l'id du pokémon que tu veux voir afficher :");
                     saisieNext = scannerClavier1.nextInt();
                     // ici j'affiche le pokemon que l'utilisateur veut afficher
-                   monEntrainement.afficheDetailPoke(saisieNext);
+                    monEntrainement.afficheDetailPoke(saisieNext);
                 }
                 case 4 -> {
                     System.out.println("Voila la liste de toutes les arènes : ");
