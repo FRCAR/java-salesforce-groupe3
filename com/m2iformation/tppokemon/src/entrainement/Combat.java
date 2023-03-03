@@ -33,9 +33,13 @@ public class Combat {
         System.out.println("pokemon 1 :" + objects[0].toString());
         System.out.println("pokemon 2 :" + objects[1].toString());
         pokemon1 = (Espece) objects[0];
-        pokemon2 = (Espece) objects[1];
+        pokemon2 = (Espece) objects[1];   
     }
-
+    public Object[] recupCombattants(){
+        Object[] poke = { pokemon1, pokemon2 };
+        System.out.println(poke[0] + " attaque en premier !");
+        return poke;
+    }
     public void initialisationPointsDeVie() {
         pokemon1.setPointsDeVie(pokemon1.getPointsDeVieMax());
         pokemon2.setPointsDeVie(pokemon2.getPointsDeVieMax());
@@ -53,6 +57,8 @@ public class Combat {
         int compteur = 0;
 
         while (pokemon1.getPointsDeVie() >= 0 && pokemon2.getPointsDeVie() >= 0) {
+            Object[] mesCombattants = this.recupCombattants();
+            this.shufflePoke(mesCombattants, 2);
             if (pokemon1.getPointsDeVie() == 0 || pokemon2.getPointsDeVie() == 0) {
                 if (pokemon1.getPointsDeVie() == 0) {
                     System.out.println(pokemon1.toString() + " est ko ! " + pokemon2.toString() + " l'importe ! ");

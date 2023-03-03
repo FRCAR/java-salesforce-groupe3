@@ -79,7 +79,7 @@ public class SimulationEntrainement {
         // initialisation des points de vie
         combat.initialisationPointsDeVie();
         // commencement du combat
-    
+        
         
         
         
@@ -163,8 +163,7 @@ public class SimulationEntrainement {
                     } else if (saisieArene == 2) {
                         Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);    
                         combat.startCombat(volcan);
-                    } else if (saisieArene == 3
-                    ) {
+                    } else if (saisieArene == 3) {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
                         combat.startCombat(mareAcide);
                     } else {
