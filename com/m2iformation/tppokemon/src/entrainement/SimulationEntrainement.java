@@ -158,20 +158,19 @@ public class SimulationEntrainement {
                     if (saisieArene == 1) {
                         Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
                         combat.startCombat(prairie);
+                        combat.attaque();
                     } else if (saisieArene == 2) {
                         Arene volcan = new Arene(EnumArene.VOLCAN, 20, 0);
                         combat.startCombat(volcan);
+                        combat.attaque();
                     } else if (saisieArene == 3) {
                         Arene mareAcide = new Arene(EnumArene.MARE_ACIDE, 0, 5);
+                        // combat.startCombat(mareAcide);
+                        combat.attaque();
                     } else {
                         System.out.println("L'arene saisie n'est pas valide");
                     }
-                    System.out.println("Saisie moi l'id de deux pokémons pour lequel tu veux voir combattre \n");
-                    System.out.println("le premier id du pokémon : ");
-                    int saisieIdPokemon1 = scannerClavier1.nextInt();
-                    System.out.println("le deuxième id du pokémon : ");
-                    int saisieIdPokemon2 = scannerClavier1.nextInt();
-                    combat.attaque(recupPokeParId(saisieIdPokemon1), recupPokeParId(saisieIdPokemon2));
+
                     // Ici Le combat va commencer
                 }
                 case 6 -> {

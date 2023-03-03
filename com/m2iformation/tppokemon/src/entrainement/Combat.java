@@ -39,18 +39,19 @@ public class Combat {
         System.out.println("pokemon 1 :" + objects[0].toString());
         System.out.println("pokemon 2 :" + objects[1].toString());
         pokemon1 = (Espece) objects[0];
-        pokemon2 = (Espece) objects[1];   
+        pokemon2 = (Espece) objects[1];
     }
-    public Object[] recupCombattants(){
+
+    public Object[] recupCombattants() {
         Object[] poke = { pokemon1, pokemon2 };
         System.out.println(poke[0] + " attaque en premier !");
         return poke;
     }
+
     public void initialisationPointsDeVie() {
         pokemon1.setPointsDeVie(pokemon1.getPointsDeVieMax());
         pokemon2.setPointsDeVie(pokemon2.getPointsDeVieMax());
         System.out.println("Les points de vie de " + pokemon1.toString() + "sont de " + pokemon1.getPointsDeVie()
-                + ". git"
                 + "Les points de vie de " + pokemon2.toString() + " sont de " + pokemon2.getPointsDeVie() + ".");
 
     }
@@ -98,9 +99,10 @@ public class Combat {
         }
     }
 
-    public void attaque(Espece pokemon1, Espece pokemon2) {
+    public void attaque() {
         // définir type d'attaque par pokemon
         Attaque attaque = new Attaque(null, 0);
+        // initialisationPointsDeVie();
         int ptsVie1 = pokemon1.getPointsDeVie();
         int ptsVie2 = pokemon2.getPointsDeVie();
         if (pokemon1.getType() == EnumType.EAU || pokemon2.getType() == EnumType.EAU) {
@@ -112,18 +114,32 @@ public class Combat {
         } else if (pokemon1.getType() == EnumType.FEU || pokemon2.getType() == EnumType.FEU) {
             attaque = attaque_feu;
         }
-        do {
+        while (pokemon1.getPointsDeVie() >= 0 && pokemon2.getPointsDeVie() >= 0) {
+            if (pokemon1.getPointsDeVie() == 0 || pokemon2.getPointsDeVie() == 0) {
+                if (pokemon1.getPointsDeVie() == 0) {
+                    System.out.println(pokemon1.toString() + " est ko ! " + pokemon2.toString() + " l'importe ! ");
+                    break;
+                } else {
+                    System.out.println(pokemon2.toString() + " est ko ! " + pokemon1.toString() + " l'importe ! ");
+                    break;
+                }
+            }
             System.out.println("start: pokemon1 attaque:");
             int calculDegats = attaque.getDegats() * attaque.calculDegats(pokemon1, pokemon2);
             pokemon2.setPointsDeVie(ptsVie2 - calculDegats);
             System.out
-                    .println("poke2 a perdu " + calculDegats + "pts de vie. il lui reste:" + pokemon2.getPointsDeVie());
+                    .println("poke2 a perdu " + calculDegats + "pts de vie. il lui reste:"
+                            + pokemon2.getPointsDeVie());
             System.out.println("start: pokemon2 attaque:");
+            System.out.println("point de vie poke 1 : " + pokemon1.getPointsDeVie());
             int calculDegats2 = attaque.getDegats() * attaque.calculDegats(pokemon2, pokemon1);
-            pokemon2.setPointsDeVie(ptsVie1 - calculDegats2);
+            System.out.println("point de vie poke 1 : " + pokemon1.getPointsDeVie());
+            pokemon1.setPointsDeVie(ptsVie1 - calculDegats2);
+            System.out.println("dégats :" + calculDegats);
             System.out
-                    .println("poke1 a perdu " + calculDegats + "pts de vie. il lui reste:" + pokemon1.getPointsDeVie());
-        } while (pokemon1.getPointsDeVie() >= 0 || pokemon2.getPointsDeVie() >= 0);
+                    .println("poke1 a perdu " + calculDegats + "pts de vie. il lui reste:"
+                            + pokemon1.getPointsDeVie());
+        }
     }
 
     public void update() {
