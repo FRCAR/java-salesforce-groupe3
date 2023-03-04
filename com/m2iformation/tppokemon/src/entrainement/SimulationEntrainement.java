@@ -167,11 +167,10 @@ public class SimulationEntrainement {
                     // System.out.println("L'arene saisie n'est pas valide");
                     // }
 
-                    String saisieArene;
-                    do {
+                    String saisieArene = scannerClavier1.nextLine().toUpperCase().trim();
+                    while (!saisieArene.matches("(?i)(prairie|volcan|\\bmare acide\\b)")) {
                         System.out.println("Combat sur quel arène ? (PRAIRIE, VOLCAN, MARE ACIDE) : ");
                         saisieArene = scannerClavier1.nextLine().toUpperCase().trim();
-
                         if (saisieArene.equals("PRAIRIE") || saisieArene.equals("prairie")
                                 || saisieArene.equals("Prairie")) {
                             Arene prairie = new Arene(EnumArene.PRAIRIE, 0, 0);
@@ -190,12 +189,7 @@ public class SimulationEntrainement {
                         } else {
                             System.out.println("L'arène saisie n'est pas valide.");
                         }
-                    } while (!(saisieArene.equals("PRAIRIE") || saisieArene.equals("prairie")
-                            || saisieArene.equals("Prairie") ||
-                            saisieArene.equals("VOLCAN") || saisieArene.equals("volcan") || saisieArene.equals("Volcan")
-                            ||
-                            saisieArene.equalsIgnoreCase("MARE ACIDE") || saisieArene.equalsIgnoreCase("mare acide")));
-
+                    }
                 }
                 case 6 -> {
                     System.out.println("Au revoir, à bientot ! ...et le terminal se ferme");
