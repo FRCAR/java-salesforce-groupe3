@@ -50,15 +50,18 @@ public class Combat {
 
     public void initialisationPointsDeVie() {
         System.out.println("\n ************************");
+        System.out.println("");
+        System.out.println("Les pokemons choisis sont : " + this.recupCombattants()[0] + " et " + this.recupCombattants()[1]);
         pokemon1.setPointsDeVie(pokemon1.getPointsDeVieMax());
         pokemon2.setPointsDeVie(pokemon2.getPointsDeVieMax());
         System.out.println("Les points de vie de " + pokemon1.toString() + "sont de " + pokemon1.getPointsDeVie()
-                + "Les points de vie de " + pokemon2.toString() + " sont de " + pokemon2.getPointsDeVie() + "\n");
+                + ". Les points de vie de " + pokemon2.toString() + " sont de " + pokemon2.getPointsDeVie() + " .\n");
         System.out.println("************************");
 
     }
 
     public void startCombat(Arene arene) {
+        System.out.println("");
         System.out
                 .println("Le combat dans " + arene.getNom() + " entre " + pokemon1 + " et " + pokemon2
                         + " commence ! \n");
@@ -163,9 +166,10 @@ public class Combat {
         ((Espece) mesCombattants[1]).setPointsDeVie(((Espece) mesCombattants[1]).getPointsDeVie() - calculDegats);
         if (((Espece) mesCombattants[1]).getPointsDeVie() < 0) {
             ((Espece) mesCombattants[1]).setPointsDeVie(0);
+        }
             System.out
                     .println(((Espece) mesCombattants[1]).toString() + " a perdu " + calculDegats
-                            + "pts de vie. il lui reste:" + ((Espece) mesCombattants[1]).getPointsDeVie() + "\n");
+                            + "pts de vie. il lui reste : " + ((Espece) mesCombattants[1]).getPointsDeVie() + "\n");
             System.out.println("\n ************************");
 
         }
@@ -176,7 +180,7 @@ public class Combat {
         // mesCombattants[1]).getPointsXp());
         // System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
         // + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp!");
-    }
+    
 
     // }
 
@@ -195,7 +199,7 @@ public class Combat {
         // while (((Espece) mesCombattants[0]).getPointsDeVie() >= 0 && ((Espece)
         // mesCombattants[1]).getPointsDeVie() >= 0){
 
-        this.shufflePoke(mesCombattants, 2);
+        // this.shufflePoke(mesCombattants, 2);
         ((Espece) mesCombattants[0]).setPointsXp(100 + ((Espece) mesCombattants[1]).getPointsXp());
         System.out.println(((Espece) mesCombattants[0]) + " a gagné : "
                 + ((Espece) mesCombattants[0]).getPointsXp() + " point de xp! \n");
